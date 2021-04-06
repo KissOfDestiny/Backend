@@ -1,0 +1,42 @@
+{% extends 'default.html' %}
+ 
+{% block title %} detail {% endblock title %}
+ 
+{% block content %}
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            DateCreation
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ post.title|title }}
+        </td>
+        <td>
+            {{ post.categoryType|title }}
+        </td>
+        <td>
+            {{ post.author.authorUser.username|title }}
+        </td>
+        <td>
+            {{ post.rating|title }}
+        </td>
+        <td>
+            {{ post.dateCreation|title }}
+        </td>
+    </tr>
+</table>
+{% endblock content %}

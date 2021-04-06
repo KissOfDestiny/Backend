@@ -19,7 +19,7 @@ class Postlist(ListView):
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'new.html'
+    template_name = 'add.html'
     context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):
