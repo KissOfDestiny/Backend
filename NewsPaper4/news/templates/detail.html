@@ -1,0 +1,59 @@
+{% extends 'default.html' %}
+ 
+{% block title %} detail {% endblock title %}
+ 
+{% block content %}
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            DateCreation
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ post.title|title }}
+        </td>
+        <td>
+            {{ post.categoryType|title }}
+        </td>
+<br/><br/>
+    <form action="{% url 'Subscribe' post.pk %}" method="POST">
+            {% csrf_token %}
+
+    {% if user.is_authenticated %}
+        <button
+                        class="btn btn-light"
+                        name="post.id" type="submit"
+                        value="{{ post.postCategory.id }}">subscribe to : {{ post.postCategory }}
+        </button>
+
+    {% else %}
+            Login to subscribe
+    {% endif %}
+    </form>
+
+<br/><br/>
+        <td>
+            {{ post.author.authorUser.username|title }}
+        </td>
+        <td>
+            {{ post.rating|title }}
+        </td>
+        <td>
+            {{ post.dateCreation|title }}
+        </td>
+    </tr>
+</table>
+{% endblock content %}
